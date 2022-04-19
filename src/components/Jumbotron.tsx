@@ -64,11 +64,11 @@ const Jumbotron = () => {
     <NextCarousel items={1}>
       <div className='relative h-3/4 w-full' style={{ height: '70vh' }}>
         <Image
-          src='/images/products/darma/darma2.jpg'
+          src='/images/products/darma/darma4.jpg'
           alt='Hunia Karya Darma'
           layout='fill'
           objectFit='cover'
-          objectPosition='center left'
+          objectPosition='center center'
         />
         <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-0 sm:right-auto sm:ml-60'>
           <DetailInfo
