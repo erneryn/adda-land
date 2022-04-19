@@ -3,6 +3,8 @@ import { FaBed, FaHome, FaMapMarkedAlt, FaToilet } from 'react-icons/fa';
 
 import NextCarousel from '@/components/NextCarousel';
 
+import UnstyledLink from './links/UnstyledLink';
+
 const DetailInfo = (props: {
   name: string;
   location: string;
@@ -11,8 +13,9 @@ const DetailInfo = (props: {
   toilet: string;
   size: string;
   status: string;
+  link: string;
 }) => {
-  const { name, location, price, bed, toilet, size, status } = props;
+  const { name, location, price, bed, toilet, size, status, link } = props;
 
   return (
     <>
@@ -44,6 +47,13 @@ const DetailInfo = (props: {
             </span>
           </div>
         </div>
+        <div className='mt-2 flex justify-end text-white'>
+          <UnstyledLink href={link}>
+            <span className=' rounded-lg bg-neutral-400 p-1 px-2'>
+              See Details
+            </span>
+          </UnstyledLink>
+        </div>
       </div>
     </>
   );
@@ -52,6 +62,27 @@ const DetailInfo = (props: {
 const Jumbotron = () => {
   return (
     <NextCarousel items={1}>
+      <div className='relative h-3/4 w-full' style={{ height: '70vh' }}>
+        <Image
+          src='/images/products/darma/darma2.jpg'
+          alt='Hunia Karya Darma'
+          layout='fill'
+          objectFit='cover'
+          objectPosition='center left'
+        />
+        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-0 sm:right-auto sm:ml-60'>
+          <DetailInfo
+            name='Hunian Karya Darma'
+            location='Jalan Karya Darma'
+            price=''
+            bed='2'
+            toilet='2'
+            size='86'
+            status='On Progress'
+            link='/property/hunian-karya-darma'
+          />
+        </div>
+      </div>
       <div className='relative h-3/4 w-full' style={{ height: '70vh' }}>
         <Image
           src='/images/kasihlima.png'
@@ -63,11 +94,12 @@ const Jumbotron = () => {
           <DetailInfo
             name='Hunian Kasih Lima'
             location='Jalan Kasih V'
-            price='Rp. 625.000.000'
+            price=''
             bed='1'
             toilet='3'
             size='80'
-            status='on progress'
+            status='Sold Out'
+            link='/property/hunian-kasih-lima'
           />
         </div>
       </div>
@@ -82,11 +114,12 @@ const Jumbotron = () => {
           <DetailInfo
             name='Hunian Balam'
             location='Jalan Balam - Ringroad'
-            price='Rp. 750.000.000'
+            price=''
             bed='1'
             toilet='3'
             size='80'
-            status='on progress'
+            status='Sold Out'
+            link='/property/hunian-balam'
           />
         </div>
       </div>

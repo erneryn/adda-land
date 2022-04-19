@@ -151,6 +151,17 @@ const Property = () => {
                   </UnstyledLink>{' '}
                 </div>
               )}
+              {data.slug === 'hunian-karya-darma' && (
+                <div>
+                  <UnstyledLink
+                    href='/images/products/darma/darma.pdf'
+                    download
+                    target='_blank'
+                  >
+                    <span>Download E-Brochure</span>
+                  </UnstyledLink>{' '}
+                </div>
+              )}
             </div>
           </div>
         )}

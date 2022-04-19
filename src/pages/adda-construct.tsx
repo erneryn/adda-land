@@ -11,6 +11,7 @@ import {
 
 import Layout from '@/components/layout/Layout';
 import NextImage from '@/components/NextImage';
+import Seo from '@/components/Seo';
 
 import Construct1 from '../../public/images/construct-1.jpg';
 import Construct2 from '../../public/images/construct-2.jpg';
@@ -21,6 +22,7 @@ import Construct5 from '../../public/images/construct-5.jpg';
 const Construct = () => {
   return (
     <>
+      <Seo templateTitle='Adda Construct' />
       <Layout>
         <div className='layout my-5'>
           <h1>ADDA CONSTRUCT</h1>

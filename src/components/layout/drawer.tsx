@@ -43,6 +43,14 @@ const Drawer: FC<props> = ({ closeDrawer }) => {
                   Property{' '}
                 </h1>
                 <UnstyledLink
+                  href='/property/hunian-karya-darma'
+                  onClick={closeDrawer}
+                >
+                  <h1 className='hover:bg-green-text active:bg-green-text py-2 pl-7 text-lg font-bold text-white focus:outline-none focus:ring focus:ring-violet-300 '>
+                    Hunian Karya Darma
+                  </h1>
+                </UnstyledLink>
+                <UnstyledLink
                   href='/property/hunian-balam'
                   onClick={closeDrawer}
                 >
