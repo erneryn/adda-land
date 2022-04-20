@@ -62,7 +62,7 @@ const DetailInfo = (props: {
 const Jumbotron = () => {
   return (
     <NextCarousel items={1}>
-      <div className='relative h-3/4 w-full' style={{ height: '70vh' }}>
+      <div className='relative h-3/4 w-screen' style={{ height: '70vh' }}>
         <Image
           src='/images/products/darma/darma4.jpg'
           alt='Hunia Karya Darma'
@@ -70,7 +70,7 @@ const Jumbotron = () => {
           objectFit='cover'
           objectPosition='center center'
         />
-        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-0 sm:right-auto sm:ml-60'>
+        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-5 sm:right-5 sm:bottom-0 lg:left-0 lg:right-auto lg:ml-60'>
           <DetailInfo
             name='Hunian Karya Darma'
             location='Jalan Karya Darma'
@@ -90,7 +90,7 @@ const Jumbotron = () => {
           layout='fill'
           objectFit='cover'
         />
-        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-0 sm:right-auto sm:ml-60'>
+        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-5 sm:right-5 sm:bottom-0 lg:left-0 lg:right-auto lg:ml-60'>
           <DetailInfo
             name='Hunian Kasih Lima'
             location='Jalan Kasih V'
@@ -110,7 +110,7 @@ const Jumbotron = () => {
           layout='fill'
           objectFit='cover'
         />
-        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-0 sm:right-auto sm:ml-60'>
+        <div className='absolute left-2 right-2 bottom-0 mb-10 sm:left-5 sm:right-5 sm:bottom-0 lg:left-0 lg:right-auto lg:ml-60'>
           <DetailInfo
             name='Hunian Balam'
             location='Jalan Balam - Ringroad'

@@ -1,5 +1,8 @@
-import * as React from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 import About from '@/components/About';
 import Construct from '@/components/Addaconstruct';
@@ -25,52 +28,73 @@ import VirtualTour from '@/components/VirtualTour';
 // to customize the default configuration.
 
 export default function HomePage() {
+  const { ref, inView } = useInView();
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        x: 0,
+        transition: { duration: 1 },
+      });
+    }
+    if (!inView) {
+      animation.start({
+        x: '-100vw',
+      });
+    }
+  }, [inView, animation]);
+
   return (
-    <Layout>
-      <Seo templateTitle='Home' />
-      <Seo />
-      <main>
-        <section className='bg-slate-50'>
-          <Jumbotron />
-        </section>
-        <section>
-          <About />
-        </section>
-        <section>
-          <Construct />
-        </section>
-        <section>
-          <Blog />
-        </section>
-        <section>
-          <Project />
-        </section>
+    <ParallaxProvider>
+      <Layout>
+        <Seo templateTitle='Home' />
+        <Seo />
+        <main>
+          <section className='bg-slate-50'>
+            <Jumbotron />
+          </section>
+          <section>
+            <About />
+          </section>
+          <section>
+            <Construct />
+          </section>
+          <section>
+            <Blog />
+          </section>
+          <section>
+            <Project />
+          </section>
 
-        <section>
-          <div className='flex items-center justify-center bg-gray-200 p-6'>
-            <div className='mr-4 w-full text-right text-xl sm:text-4xl'>
-              For More Information
+          <section>
+            <div className='flex items-center justify-center bg-gray-200 p-6'>
+              <div className='mr-4 w-full text-right text-xl sm:text-4xl'>
+                For More Information
+              </div>
+              <div ref={ref} className='w-full'>
+                <motion.div animate={animation} className='ml-4 flex w-full'>
+                  <UnstyledLink
+                    href='https://api.whatsapp.com/send?phone=6281260754118'
+                    className='flex items-center justify-center border-2 border-neutral-700 p-2 px-10 sm:w-1/2'
+                  >
+                    <FaWhatsapp className='mr-2' />
+                    <span>WhatsApp</span>
+                  </UnstyledLink>
+                </motion.div>
+              </div>
             </div>
-            <div className='ml-4 flex w-full'>
-              <UnstyledLink
-                href='https://api.whatsapp.com/send?phone=6281260754118'
-                className='flex items-center justify-center border-2 border-neutral-700 p-2 px-10 sm:w-1/2'
-              >
-                <FaWhatsapp className='mr-2' />
-                <span>WhatsApp</span>
-              </UnstyledLink>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        <section>
-          <PartnerShip />
-        </section>
+          <section>
+            <PartnerShip />
+          </section>
 
-        <section>
-          <VirtualTour />
-        </section>
-      </main>
-    </Layout>
+          <section>
+            <VirtualTour />
+          </section>
+        </main>
+      </Layout>
+    </ParallaxProvider>
   );
 }
